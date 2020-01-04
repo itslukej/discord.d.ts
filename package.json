@@ -1,0 +1,19 @@
+{
+  "name": "discord.d.ts",
+  "version": "0.0.1",
+  "description": "Typings for Discord.",
+  "main": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itslukej/discord.d.ts.git"
+  },
+  "author": "Luke James <me@lukej.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itslukej/discord.d.ts/issues"
+  },
+  "homepage": "https://github.com/itslukej/discord.d.ts#readme"
+}
