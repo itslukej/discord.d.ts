@@ -628,7 +628,7 @@ declare namespace Discord {
     rate_limit_per_user?: number;
   }
 
-  class GuildVoiceChannel {
+  class GuildVoiceChannel extends Channel {
     type: ChannelType.GUILD_VOICE;
     name: string;
     guild_id: Snowflake<Guild>;
