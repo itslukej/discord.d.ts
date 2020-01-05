@@ -632,6 +632,9 @@ declare namespace Discord {
     type: ChannelType.GUILD_VOICE;
     name: string;
     guild_id: Snowflake<Guild>;
+    position: number;
+    permission_overwrites: PermissionOverwrite[];
+    parent_id?: Snowflake<GuildCategoryChannel>;
     bitrate?: number;
     user_limit?: number;
   }
