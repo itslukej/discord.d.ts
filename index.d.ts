@@ -632,14 +632,13 @@ declare namespace Discord {
     type: ChannelType.GUILD_VOICE;
     name: string;
     guild_id: Snowflake<Guild>;
-    position: number;
-    permission_overwrites: PermissionOverwrite[];
-    parent_id?: Snowflake<GuildCategoryChannel>;
     bitrate?: number;
     user_limit?: number;
   }
 
   class GuildCategoryChannel extends Channel {
+    position: number;
+    permission_overwrites: PermissionOverwrite[];
     type: ChannelType.GUILD_CATEGORY;
   }
 
@@ -647,10 +646,15 @@ declare namespace Discord {
     type: ChannelType.GUILD_NEWS;
     topic?: string;
     nsfw?: boolean;
+    position: number;
+    permission_overwrites: PermissionOverwrite[];
+    parent_id?: Snowflake<GuildCategoryChannel>;
   }
 
   class GuildStoreChannel extends Channel {
     type: ChannelType.GUILD_STORE;
+    parent_id?: Snowflake<GuildCategoryChannel>;
+    position: number;
   }
 
   /* Presence */
