@@ -640,13 +640,17 @@ declare namespace Discord {
   }
 
   class GuildCategoryChannel extends Channel {
+    guild_id: Snowflake<Guild>;
     position: number;
     permission_overwrites: PermissionOverwrite[];
     type: ChannelType.GUILD_CATEGORY;
+    name: string;
   }
 
   class GuildNewsChannel extends Channel {
+    guild_id: Snowflake<Guild>;
     type: ChannelType.GUILD_NEWS;
+    name: string;
     topic?: string;
     nsfw?: boolean;
     position: number;
@@ -655,9 +659,11 @@ declare namespace Discord {
   }
 
   class GuildStoreChannel extends Channel {
+    guild_id: Snowflake<Guild>;
     type: ChannelType.GUILD_STORE;
     parent_id?: Snowflake<GuildCategoryChannel>;
     position: number;
+    name: string;
   }
 
   /* Presence */
