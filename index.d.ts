@@ -596,6 +596,8 @@ declare namespace Discord {
   interface PermissionOverwrite {
     id: Snowflake<User | Role>;
     type: PermissionOverwriteType;
+    allow: number;
+    deny: number;
   }
 
   type AnyChannel = DmChannel | AnyGuildChannel;
