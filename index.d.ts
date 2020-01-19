@@ -69,6 +69,7 @@ declare namespace Discord {
       | ChannelPinsUpdate
       | GuildCreate
       | GuildUpdate
+      | GuildDelete
       | GuildBanAdd
       | GuildBanRemove
       | GuildIntegrationsUpdate
@@ -145,6 +146,11 @@ declare namespace Discord {
     interface GuildUpdate extends Dispatch {
       t: EventTypes.GUILD_UPDATE;
       d: Guild;
+    }
+
+    interface GuildDelete extends Dispatch {
+      t: EventTypes.GUILD_DELETE;
+      d: UnavailableGuild;
     }
 
     interface GuildBanAdd extends Dispatch {
