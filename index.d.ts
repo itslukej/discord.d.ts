@@ -614,7 +614,7 @@ declare namespace Discord {
   }
 
   class DmChannel extends TextChannel {
-    type: ChannelType.GUILD_VOICE;
+    type: ChannelType.DM;
     recipients: User[];
   }
 

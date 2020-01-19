@@ -1,6 +1,6 @@
 {
   "name": "discord.d.ts",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Typings for Discord.",
   "types": "index.d.ts",
   "scripts": {
