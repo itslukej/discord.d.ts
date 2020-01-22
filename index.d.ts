@@ -66,6 +66,7 @@ declare namespace Discord {
       | Ready
       | ChannelCreate
       | ChannelUpdate
+      | ChannelDelete
       | ChannelPinsUpdate
       | GuildCreate
       | GuildUpdate
@@ -115,6 +116,11 @@ declare namespace Discord {
 
     interface ChannelUpdate extends Dispatch {
       t: EventTypes.CHANNEL_UPDATE;
+      d: AnyChannel;
+    }
+
+    interface ChannelDelete extends Dispatch {
+      t: EventTypes.CHANNEL_DELETE;
       d: AnyChannel;
     }
 
