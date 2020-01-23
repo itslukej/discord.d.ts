@@ -544,7 +544,7 @@ declare namespace Discord {
   }
 
   /* Objects */
-  type Snowflake<T> = string;
+  type Snowflake<T = any> = string & { type?: T };
 
   class User {
     id: Snowflake<User>;
