@@ -811,11 +811,21 @@ declare namespace Discord {
     width?: number;
   }
 
-  class Message {
+  type Message = UserMessage | WebhookMessage;
+
+  class UserMessage extends BaseMessage {
+    author: User;
+  }
+
+  class WebhookMessage extends BaseMessage {
+    webhook_id?: Snowflake<Webhook>;
+    author: Webhook;
+  }
+
+  class BaseMessage {
     id: Snowflake<Message>;
     channel_id: Snowflake<Channel>;
     guild_id?: Snowflake<Guild>;
-    author: User | Webhook;
     member?: GuildMember;
     content: string;
     timestamp: string;
@@ -830,7 +840,6 @@ declare namespace Discord {
     reactions?: Reaction[];
     nonce?: number | string;
     pinned: boolean;
-    webhook_id?: Snowflake<Webhook>;
     type: MessageType;
     activity?: MessageActivity;
     application?: MessageApplication;
