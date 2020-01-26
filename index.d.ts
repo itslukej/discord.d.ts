@@ -818,7 +818,7 @@ declare namespace Discord {
   }
 
   class WebhookMessage extends BaseMessage {
-    webhook_id?: Snowflake<Webhook>;
+    webhook_id: Snowflake<Webhook>;
     author: Webhook;
   }
 
