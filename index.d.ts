@@ -1,5 +1,5 @@
 declare namespace Discord {
-  const enum EventTypes {
+  export const enum EventTypes {
     READY = "READY",
     CHANNEL_CREATE = "CHANNEL_CREATE",
     CHANNEL_UPDATE = "CHANNEL_UPDATE",
@@ -34,7 +34,7 @@ declare namespace Discord {
     PRESENCE_UPDATE = "PRESENCE_UPDATE"
   }
 
-  const enum Op {
+  export const enum Op {
     DISPATCH = 0,
     HEARTBEAT = 1,
     IDENTIFY = 2,
@@ -347,7 +347,7 @@ declare namespace Discord {
 
   type GatewayVersions = 6;
 
-  const enum UserFlags {
+  export const enum UserFlags {
     NONE = 0,
     DISCORD_EMPLOYEE = 1 << 0,
     DISCORD_PARTNER = 1 << 1,
@@ -361,12 +361,12 @@ declare namespace Discord {
     SYSTEM = 1 << 12,
   }
 
-  const enum PremiumType {
+  export const enum PremiumType {
     NITRO_CLASSIC = 1,
     NITRO = 2,
   }
 
-  const enum Permissions {
+  export const enum Permissions {
     CREATE_INSTANT_INVITE = 1,
     KICK_MEMBERS = 1 << 1,
     BAN_MEMBERS = 1 << 2,
@@ -404,7 +404,7 @@ declare namespace Discord {
     ALL_VOICE = 0b0110011111100000000001100010001,
   }
 
-  const enum Regions {
+  export const enum Regions {
     BRAZIL = "brazil",
     EUROPE = "europe",
     HONG_KONG = "hong-kong",
@@ -442,7 +442,7 @@ declare namespace Discord {
     VIP_US_WEST = "vip-us-west"
   }
 
-  const enum VerificationLevel {
+  export const enum VerificationLevel {
     NONE = 0,
     LOW = 1,
     MEDIUM = 2,
@@ -450,35 +450,35 @@ declare namespace Discord {
     VERY_HIGH = 4,
   }
 
-  const enum PremiumTier {
+  export const enum PremiumTier {
     NONE = 0,
     TIER_1 = 1,
     TIER_2 = 2,
     TIER_3 = 3,
   }
 
-  const enum MFALevel {
+  export const enum MFALevel {
     NONE = 0,
     ELEVATED = 1,
   }
 
-  const enum MessageNotificationsLevel {
+  export const enum MessageNotificationsLevel {
     ALL_MESSAGES = 0,
     ONLY_MENTIONS = 1,
   }
 
-  const enum ExplicitContentFilterLevel {
+  export const enum ExplicitContentFilterLevel {
     DISABLED = 0,
     MEMBERS_WITHOUT_ROLES = 1,
     ALL_MEMBERS = 2,
   }
 
-  const enum PermissionOverwriteType {
+  export const enum PermissionOverwriteType {
     ROLE = "role",
     MEMBER = "member"
   }
 
-  const enum ChannelType {
+  export const enum ChannelType {
     GUILD_TEXT = 0,
     DM = 1,
     GUILD_VOICE = 2,
@@ -488,7 +488,7 @@ declare namespace Discord {
     GUILD_STORE = 6,
   }
 
-  export enum Feature {
+  export const enum Feature {
     INVITE_SPLASH = "INVITE_SPLASH",
     VIP_REGIONS = "VIP_REGIONS",
     VANITY_URL = "VANITY_URL",
@@ -503,14 +503,14 @@ declare namespace Discord {
     BANNER = "BANNER"
   }
 
-  export enum ActivityType {
+  export const enum ActivityType {
     GAME = 0,
     STREAMING = 1,
     LISTENING = 2,
     CUSTOM = 4,
   }
 
-  export enum ActivityFlags {
+  export const enum ActivityFlags {
     INSTANCE = 1 << 0,
     JOIN = 1 << 1,
     SPECTATE = 1 << 2,
@@ -519,7 +519,7 @@ declare namespace Discord {
     PLAY = 1 << 5,
   }
 
-  export enum MessageFlags {
+  export const enum MessageFlags {
     CROSSPOSTED = 1 << 0,
     IS_CROSSPOST = 1 << 1,
     SUPPRESS_EMBEDS = 1 << 2,
@@ -527,7 +527,7 @@ declare namespace Discord {
     URGENT = 1 << 4,
   }
 
-  export enum MessageType {
+  export const enum MessageType {
     DEFAULT = 0,
     RECIPIENT_ADD = 1,
     RECIPIENT_REMOVE = 2,
@@ -546,7 +546,7 @@ declare namespace Discord {
   /* Objects */
   type Snowflake<T = any> = string & { type?: T };
 
-  class User {
+  interface User {
     id: Snowflake<User>;
     username: string;
     discriminator: string;
@@ -561,13 +561,13 @@ declare namespace Discord {
     premium_type?: PremiumType;
   }
 
-  class Webhook {
+  interface Webhook {
     id: Snowflake<Webhook>;
     username: string;
     avatar?: string;
   }
 
-  class Guild {
+  interface Guild {
     id: Snowflake<Guild>;
     name: string;
     icon?: string;
@@ -615,22 +615,22 @@ declare namespace Discord {
   type AnyChannel = DmChannel | AnyGuildChannel;
   type AnyGuildChannel = GuildTextChannel | GuildVoiceChannel | GuildCategoryChannel | GuildNewsChannel | GuildStoreChannel;
 
-  class Channel { 
+  interface Channel { 
     id: Snowflake<Channel>;
     type: ChannelType;
   }
 
-  class TextChannel extends Channel {
+  interface TextChannel extends Channel {
     last_pin_timestamp: string;
     last_message_id: Snowflake<Message>;
   }
 
-  class DmChannel extends TextChannel {
+  interface DmChannel extends TextChannel {
     type: ChannelType.DM;
     recipients: User[];
   }
 
-  class GuildTextChannel extends TextChannel {
+  interface GuildTextChannel extends TextChannel {
     type: ChannelType.GUILD_TEXT;
     name: string;
     guild_id: Snowflake<Guild>;
@@ -642,7 +642,7 @@ declare namespace Discord {
     rate_limit_per_user?: number;
   }
 
-  class GuildVoiceChannel extends Channel {
+  interface GuildVoiceChannel extends Channel {
     type: ChannelType.GUILD_VOICE;
     name: string;
     guild_id: Snowflake<Guild>;
@@ -653,7 +653,7 @@ declare namespace Discord {
     user_limit?: number;
   }
 
-  class GuildCategoryChannel extends Channel {
+  interface GuildCategoryChannel extends Channel {
     guild_id: Snowflake<Guild>;
     position: number;
     permission_overwrites: PermissionOverwrite[];
@@ -661,7 +661,7 @@ declare namespace Discord {
     name: string;
   }
 
-  class GuildNewsChannel extends Channel {
+  interface GuildNewsChannel extends Channel {
     guild_id: Snowflake<Guild>;
     type: ChannelType.GUILD_NEWS;
     name: string;
@@ -672,7 +672,7 @@ declare namespace Discord {
     parent_id?: Snowflake<GuildCategoryChannel>;
   }
 
-  class GuildStoreChannel extends Channel {
+  interface GuildStoreChannel extends Channel {
     guild_id: Snowflake<Guild>;
     type: ChannelType.GUILD_STORE;
     parent_id?: Snowflake<GuildCategoryChannel>;
@@ -682,13 +682,13 @@ declare namespace Discord {
 
   /* Presence */
 
-  class ClientStatus {
+  interface ClientStatus {
     desktop?: string;
     mobile?: string;
     web?: string;
   }
 
-  class Activity {
+  interface Activity {
     name: string;
     type: ActivityType;
     url?: string;
@@ -705,36 +705,36 @@ declare namespace Discord {
     flags?: number;
   }
 
-  class ActivityTimestamp {
+  interface ActivityTimestamp {
     start?: number;
     end?: number;
   }
 
-  class ActivityEmoji {
+  interface ActivityEmoji {
     name: string;
     id?: Snowflake<ActivityEmoji>;
     animated?: boolean;
   }
 
-  class ActivityParty {
+  interface ActivityParty {
     id?: string;
     size?: number[];
   }
 
-  class ActivityAssets {
+  interface ActivityAssets {
     large_image?: string;
     large_text?: string;
     small_image?: string;
     small_text?: string;
   }
 
-  class ActivitySecrets {
+  interface ActivitySecrets {
     join?: string;
     spectate?: string;
     match?: string;
   }
 
-  class VoiceState {
+  interface VoiceState {
     guild_id?: Snowflake<Guild>;
     channel_id: Snowflake<Channel>;
     user_id: Snowflake<User>;
@@ -748,7 +748,7 @@ declare namespace Discord {
     suppress: boolean;
   }
 
-  class GuildMember {
+  interface GuildMember {
     user: User;
     nick?: string;
     roles: Snowflake<Role>[];
@@ -758,7 +758,7 @@ declare namespace Discord {
     mute: boolean;
   }
 
-  class Role {
+  interface Role {
     id: Snowflake<Role>;
     name: string;
     color: number;
@@ -769,19 +769,19 @@ declare namespace Discord {
     mentionable: boolean;
   }
 
-  class ChannelMention {
+  interface ChannelMention {
     id: Snowflake<Channel>;
     guild_id: Snowflake<Guild>;
     type: ChannelType;
     name: string;
   }
 
-  class MessageActivity {
+  interface MessageActivity {
     type: number;
     party_id?: string;
   }
 
-  class MessageApplication {
+  interface MessageApplication {
     id: Snowflake<void>;
     cover_image?: string;
     description: string;
@@ -789,19 +789,19 @@ declare namespace Discord {
     name: string;
   }
 
-  class MessageReference {
+  interface MessageReference {
     message_id?: Snowflake<Message>;
     channel_id: Snowflake<Channel>;
     guild_id?: Snowflake<Guild>;
   }
 
-  class Reaction {
+  interface Reaction {
     count: number;
     me: boolean;
     emoji: Partial<Emoji>;
   }
 
-  class Attachment {
+  interface Attachment {
     id: Snowflake<Attachment>;
     filename: string;
     size: number;
@@ -813,16 +813,16 @@ declare namespace Discord {
 
   type Message = UserMessage | WebhookMessage;
 
-  class UserMessage extends BaseMessage {
+  interface UserMessage extends BaseMessage {
     author: User;
   }
 
-  class WebhookMessage extends BaseMessage {
+  interface WebhookMessage extends BaseMessage {
     webhook_id: Snowflake<Webhook>;
     author: Webhook;
   }
 
-  class BaseMessage {
+  interface BaseMessage {
     id: Snowflake<Message>;
     channel_id: Snowflake<Channel>;
     guild_id?: Snowflake<Guild>;
@@ -847,7 +847,7 @@ declare namespace Discord {
     flags?: number;
   }
 
-  class Presence {
+  interface Presence {
     user: User | { id: Snowflake<User> };
     roles: Snowflake<Role>[];
     game: Activity;
@@ -860,52 +860,52 @@ declare namespace Discord {
   }
 
   namespace Embed {
-    class Footer {
+    interface Footer {
       text: string;
       icon_url?: string;
       proxy_icon_url?: string;
     }
 
-    class Image {
+    interface Image {
       url?: string;
       proxy_url?: string;
       height?: number;
       width?: number;
     }
 
-    class Thumbnail {
+    interface Thumbnail {
       url?: string;
       proxy_url?: string;
       height?: number;
       width?: number;
     }
 
-    class Video {
+    interface Video {
       url?: string;
       height?: number;
       width?: number;
     }
 
-    class Provider {
+    interface Provider {
       name?: string;
       url?: string;
     }
 
-    class Author {
+    interface Author {
       name?: string;
       url?: string;
       icon_url?: string;
       proxy_icon_url?: string;
     }
 
-    class Field {
+    interface Field {
       name: string;
       value: string;
       inline?: boolean;
     }
   }
 
-  class Embed {
+  interface Embed {
     title?: string;
     type?: string;
     description?: string;
@@ -921,7 +921,7 @@ declare namespace Discord {
     fields?: Embed.Field[]; 
   }
 
-  class Emoji {
+  interface Emoji {
     id?: Snowflake<Emoji>;
     name?: string;
     roles?: Snowflake<Role>[];
