@@ -811,7 +811,22 @@ declare namespace Discord {
     width?: number;
   }
 
-  type Message = UserMessage | WebhookMessage;
+  type Message = 
+    | GuildWebhookMessage
+    | GuildMemberMessage
+    | UserMessage;
+
+  type GuildWebhookMessage = GuildMessage & WebhookMessage;
+  type GuildMemberMessage = GuildMessage & UserMessage & MemberMessage;
+
+  interface GuildMessage extends BaseMessage {
+    guild_id: Snowflake<Guild>;
+    mentions: Array<User & { member: Partial<GuildMember> }>;
+  }
+
+  interface MemberMessage extends UserMessage {
+    member: GuildMember;
+  }
 
   interface UserMessage extends BaseMessage {
     author: User;
@@ -825,14 +840,12 @@ declare namespace Discord {
   interface BaseMessage {
     id: Snowflake<Message>;
     channel_id: Snowflake<Channel>;
-    guild_id?: Snowflake<Guild>;
-    member?: GuildMember;
     content: string;
     timestamp: string;
     edited_timestamp: string;
     tts: boolean;
     mention_everyone: boolean;
-    mentions: Array<User & { member: Partial<GuildMember> }>;
+    mentions: Array<User>;
     mention_roles: Snowflake<Role>[];
     mention_channels?: ChannelMention[];
     attachments: Attachment[];
