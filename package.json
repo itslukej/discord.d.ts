@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Typings for Discord.",
   "main": "dist/index.js",
-  "types": "typings/index.d.ts",
+  "types": "types/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
