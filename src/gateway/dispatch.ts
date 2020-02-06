@@ -267,7 +267,7 @@ export interface UserUpdate extends DispatchEvent {
 
 export interface VoiceStateUpdate extends DispatchEvent {
   t: EventType.VOICE_STATE_UPDATE;
-  d: VoiceState;
+  d: VoiceState & { guild_id: Snowflake<Guild> };
 }
 
 export interface VoiceServerUpdate extends DispatchEvent {
