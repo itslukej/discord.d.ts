@@ -1,6 +1,4 @@
-import { Snowflake } from "./Snowflake";
-import { User } from "./User";
-import { Role } from "./Role";
+import { UserSnowflake, RoleSnowflake } from "./Snowflake";
 
 export const enum Permissions {
   CREATE_INSTANT_INVITE = 1,
@@ -46,7 +44,7 @@ export const enum PermissionOverwriteType {
 }
 
 export interface PermissionOverwrite {
-  id: Snowflake<User | Role>;
+  id: UserSnowflake | RoleSnowflake;
   type: PermissionOverwriteType;
   allow: number;
   deny: number;

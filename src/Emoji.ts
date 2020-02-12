@@ -1,11 +1,10 @@
-import { Snowflake } from "./Snowflake";
-import { Role } from "./Role";
+import { EmojiSnowflake, RoleSnowflake } from "./Snowflake";
 import { User } from "./User";
 
 export interface Emoji {
-  id?: Snowflake<Emoji>;
+  id?: EmojiSnowflake;
   name?: string;
-  roles?: Snowflake<Role>[];
+  roles?: RoleSnowflake[];
   user?: User;
   require_colons?: boolean;
   managed?: boolean;

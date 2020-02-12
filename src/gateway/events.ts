@@ -1,9 +1,6 @@
 import { ReceivableOp, SendableOp, DispatchEventType } from './constants';
 import * as Dispatch from './dispatch';
-import { Snowflake } from '../Snowflake';
-import { Guild } from '../Guild';
-import { User } from '../User';
-import { Channel } from '../Channel';
+import { GuildSnowflake, UserSnowflake, ChannelSnowflake } from '../Snowflake';
 import { Activity, Status } from '../Presence';
 
 /* Base */
@@ -96,19 +93,19 @@ export interface ResumeEvent extends SendableEvent {
 export interface RequestGuildMembersEvent extends SendableEvent {
   op: SendableOp.REQUEST_GUILD_MEMBERS;
   d: {
-    guild_id: Snowflake<Guild> | Array<Snowflake<Guild>>;
+    guild_id: GuildSnowflake | Array<GuildSnowflake>;
     query?: string;
     limit: number;
     presences?: boolean;
-    user_ids?: Snowflake<User> | Array<Snowflake<User>>;
+    user_ids?: UserSnowflake | Array<UserSnowflake>;
   }
 }
 
 export interface UpdateVoiceStateEvent extends SendableEvent {
   op: SendableOp.VOICE_STATE_UPDATE;
   d: {
-    guild_id: Snowflake<Guild>;
-    channel_id: Snowflake<Channel> | null;
+    guild_id: GuildSnowflake;
+    channel_id: ChannelSnowflake | null;
     self_mute: boolean;
     self_deaf: boolean;
   }

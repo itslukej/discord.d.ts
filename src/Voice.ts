@@ -1,7 +1,4 @@
-import { Snowflake } from "./Snowflake";
-import { Guild } from "./Guild";
-import { Channel } from "./Channel";
-import { User } from "./User";
+import { GuildSnowflake, ChannelSnowflake, UserSnowflake } from "./Snowflake";
 import { GuildMember } from "./Member";
 
 export const enum Regions {
@@ -43,9 +40,9 @@ export const enum Regions {
 }
 
 export interface VoiceState {
-  guild_id?: Snowflake<Guild>;
-  channel_id: Snowflake<Channel>;
-  user_id: Snowflake<User>;
+  guild_id?: GuildSnowflake;
+  channel_id: ChannelSnowflake;
+  user_id: UserSnowflake;
   member?: GuildMember;
   session_id: string;
   deaf: boolean;

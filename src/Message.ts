@@ -1,10 +1,8 @@
-import { Channel, ChannelType } from "./Channel";
-import { Snowflake } from "./Snowflake";
-import { Guild } from "./Guild";
+import { ChannelType } from "./Channel";
+import { Snowflake, ChannelSnowflake, GuildSnowflake, WebhookSnowflake, RoleSnowflake, MessageSnowflake } from "./Snowflake";
 import { Webhook } from "./Webhook";
 import { User } from "./User";
 import { GuildMember } from "./Member";
-import { Role } from "./Role";
 import { Reaction } from "./Reaction";
 import { Attachment } from "./Attachment";
 import { Embed } from "./Embed";
@@ -34,8 +32,8 @@ export const enum MessageType {
 }
 
 export interface ChannelMention {
-  id: Snowflake<Channel>;
-  guild_id: Snowflake<Guild>;
+  id: ChannelSnowflake;
+  guild_id: GuildSnowflake;
   type: ChannelType;
   name: string;
 }
@@ -46,7 +44,7 @@ export interface MessageActivity {
 }
 
 export interface MessageApplication {
-  id: Snowflake<void>;
+  id: Snowflake;
   cover_image?: string;
   description: string;
   icon?: string;
@@ -54,9 +52,9 @@ export interface MessageApplication {
 }
 
 export interface MessageReference {
-  message_id?: Snowflake<Message>;
-  channel_id: Snowflake<Channel>;
-  guild_id?: Snowflake<Guild>;
+  message_id?: MessageSnowflake;
+  channel_id: ChannelSnowflake;
+  guild_id?: GuildSnowflake;
 }
 
 export type Message = 
@@ -68,7 +66,7 @@ export type GuildWebhookMessage = GuildMessage & WebhookMessage;
 export type GuildMemberMessage = GuildMessage & UserMessage & MemberMessage;
 
 export interface GuildMessage extends BaseMessage {
-  guild_id: Snowflake<Guild>;
+  guild_id: GuildSnowflake;
   mentions: Array<User & { member: Partial<GuildMember> }>;
 }
 
@@ -81,20 +79,20 @@ export interface UserMessage extends BaseMessage {
 }
 
 export interface WebhookMessage extends BaseMessage {
-  webhook_id: Snowflake<Webhook>;
+  webhook_id: WebhookSnowflake;
   author: Webhook;
 }
 
 export interface BaseMessage {
-  id: Snowflake<Message>;
-  channel_id: Snowflake<Channel>;
+  id: MessageSnowflake;
+  channel_id: ChannelSnowflake;
   content: string;
   timestamp: string;
   edited_timestamp: string;
   tts: boolean;
   mention_everyone: boolean;
   mentions: Array<User>;
-  mention_roles: Snowflake<Role>[];
+  mention_roles: RoleSnowflake[];
   mention_channels?: ChannelMention[];
   attachments: Attachment[];
   embeds: Embed[];

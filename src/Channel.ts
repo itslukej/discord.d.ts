@@ -1,8 +1,6 @@
-import { Snowflake } from './Snowflake';
+import { ChannelSnowflake, MessageSnowflake, GuildSnowflake } from './Snowflake';
 import { User } from './User';
-import { Guild } from './Guild';
 import { PermissionOverwrite } from './Permissions';
-import { Message } from './Message';
 
 export const enum ChannelType {
   GUILD_TEXT = 0,
@@ -18,13 +16,13 @@ export type AnyChannel = DmChannel | AnyGuildChannel;
 export type AnyGuildChannel = GuildTextChannel | GuildVoiceChannel | GuildCategoryChannel | GuildNewsChannel | GuildStoreChannel;
 
 export interface Channel { 
-  id: Snowflake<Channel>;
+  id: ChannelSnowflake;
   type: ChannelType;
 }
 
 export interface TextChannel extends Channel {
   last_pin_timestamp: string;
-  last_message_id: Snowflake<Message>;
+  last_message_id: MessageSnowflake;
 }
 
 export interface DmChannel extends TextChannel {
@@ -35,10 +33,10 @@ export interface DmChannel extends TextChannel {
 export interface GuildTextChannel extends TextChannel {
   type: ChannelType.GUILD_TEXT;
   name: string;
-  guild_id: Snowflake<Guild>;
+  guild_id: GuildSnowflake;
   position: number;
   permission_overwrites: PermissionOverwrite[];
-  parent_id?: Snowflake<GuildCategoryChannel>;
+  parent_id?: ChannelSnowflake;
   topic?: string;
   nsfw: boolean;
   rate_limit_per_user?: number;
@@ -47,16 +45,16 @@ export interface GuildTextChannel extends TextChannel {
 export interface GuildVoiceChannel extends Channel {
   type: ChannelType.GUILD_VOICE;
   name: string;
-  guild_id: Snowflake<Guild>;
+  guild_id: GuildSnowflake;
   position: number;
   permission_overwrites: PermissionOverwrite[];
-  parent_id?: Snowflake<GuildCategoryChannel>;
+  parent_id?: ChannelSnowflake;
   bitrate?: number;
   user_limit?: number;
 }
 
 export interface GuildCategoryChannel extends Channel {
-  guild_id: Snowflake<Guild>;
+  guild_id: GuildSnowflake;
   position: number;
   permission_overwrites: PermissionOverwrite[];
   type: ChannelType.GUILD_CATEGORY;
@@ -64,20 +62,20 @@ export interface GuildCategoryChannel extends Channel {
 }
 
 export interface GuildNewsChannel extends Channel {
-  guild_id: Snowflake<Guild>;
+  guild_id: GuildSnowflake;
   type: ChannelType.GUILD_NEWS;
   name: string;
   topic?: string;
   nsfw?: boolean;
   position: number;
   permission_overwrites: PermissionOverwrite[];
-  parent_id?: Snowflake<GuildCategoryChannel>;
+  parent_id?: ChannelSnowflake;
 }
 
 export interface GuildStoreChannel extends Channel {
-  guild_id: Snowflake<Guild>;
+  guild_id: GuildSnowflake;
   type: ChannelType.GUILD_STORE;
-  parent_id?: Snowflake<GuildCategoryChannel>;
+  parent_id?: ChannelSnowflake;
   position: number;
   name: string;
 }

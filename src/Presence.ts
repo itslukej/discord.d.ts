@@ -1,7 +1,5 @@
-import { Snowflake } from "./Snowflake";
+import { ActivityEmojiSnowflake, UserSnowflake, RoleSnowflake, GuildSnowflake, Snowflake } from "./Snowflake";
 import { User } from "./User";
-import { Role } from "./Role";
-import { Guild } from "./Guild";
 
 export type Status = "idle" | "dnd" | "online" | "offline";
 
@@ -33,7 +31,7 @@ export interface Activity {
   url?: string;
   created_at: number;
   timestamps?: ActivityTimestamp;
-  application_id?: Snowflake<void>;
+  application_id?: Snowflake;
   details?: string;
   state?: string;
   emoji?: ActivityEmoji;
@@ -51,7 +49,7 @@ export interface ActivityTimestamp {
 
 export interface ActivityEmoji {
   name: string;
-  id?: Snowflake<ActivityEmoji>;
+  id?: ActivityEmojiSnowflake;
   animated?: boolean;
 }
 
@@ -74,10 +72,10 @@ export interface ActivitySecrets {
 }
 
 export interface Presence {
-  user: User | { id: Snowflake<User> };
-  roles: Snowflake<Role>[];
+  user: User | { id: UserSnowflake };
+  roles: RoleSnowflake[];
   game: Activity;
-  guild_id: Snowflake<Guild>;
+  guild_id: GuildSnowflake;
   status: Status;
   activities: Activity[];
   client_status: ClientStatus;

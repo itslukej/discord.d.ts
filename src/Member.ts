@@ -1,11 +1,10 @@
 import { User } from "./User";
-import { Snowflake } from "./Snowflake";
-import { Role } from "./Role";
+import { RoleSnowflake } from "./Snowflake";
 
 export interface GuildMember {
   user: User;
   nick?: string;
-  roles: Snowflake<Role>[];
+  roles: RoleSnowflake[];
   joined_at: string;
   premium_since?: string;
   deaf: boolean;

@@ -1,7 +1,7 @@
-import { Snowflake } from "./Snowflake";
+import { RoleSnowflake } from "./Snowflake";
 
 export interface Role {
-  id: Snowflake<Role>;
+  id: RoleSnowflake;
   name: string;
   color: number;
   hoist: boolean;

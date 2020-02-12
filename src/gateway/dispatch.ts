@@ -6,7 +6,7 @@ import { AnyChannel, Channel } from '../Channel';
 import { VoiceState } from '../Voice';
 import { GuildMember } from '../Member';
 import { Presence } from '../Presence';
-import { Snowflake } from '../Snowflake';
+import { Snowflake, GuildSnowflake, ChannelSnowflake, MessageSnowflake, UserSnowflake, RoleSnowflake } from '../Snowflake';
 import { Role } from '../Role';
 import { Message } from '../Message';
 import { Emoji } from '../Emoji';
@@ -107,7 +107,7 @@ export interface GuildDelete extends DispatchEvent {
 export interface GuildBanAdd extends DispatchEvent {
   t: EventType.GUILD_BAN_ADD;
   d: {
-    guild_id: Snowflake<Guild>;
+    guild_id: GuildSnowflake;
     user: User;
   };
 }
@@ -115,7 +115,7 @@ export interface GuildBanAdd extends DispatchEvent {
 export interface GuildBanRemove extends DispatchEvent {
   t: EventType.GUILD_BAN_REMOVE;
   d: {
-    guild_id: Snowflake<Guild>;
+    guild_id: GuildSnowflake;
     user: User;
   };
 }
@@ -123,19 +123,19 @@ export interface GuildBanRemove extends DispatchEvent {
 export interface GuildIntegrationsUpdate extends DispatchEvent {
   t: EventType.GUILD_INTEGRATIONS_UPDATE;
   d: {
-    guild_id: Snowflake<Guild>;
+    guild_id: GuildSnowflake;
   };
 }
 
 export interface GuildMemberAdd extends DispatchEvent {
   t: EventType.GUILD_MEMBER_ADD;
-  d: GuildMember & { guild_id: Snowflake<Guild> };
+  d: GuildMember & { guild_id: GuildSnowflake };
 }
 
 export interface GuildMemberRemove extends DispatchEvent {
   t: EventType.GUILD_MEMBER_REMOVE;
   d: {
-    guild_id: Snowflake<Guild>;
+    guild_id: GuildSnowflake;
     user: User;
   };
 }
@@ -143,8 +143,8 @@ export interface GuildMemberRemove extends DispatchEvent {
 export interface GuildMemberUpdate extends DispatchEvent {
   t: EventType.GUILD_MEMBER_UPDATE;
   d: {
-    guild_id: Snowflake<Guild>;
-    roles: Snowflake<Role>[];
+    guild_id: GuildSnowflake;
+    roles: RoleSnowflake[];
     user: User;
     nick: string;
   };
@@ -153,7 +153,7 @@ export interface GuildMemberUpdate extends DispatchEvent {
 export interface GuildMembersChunk extends DispatchEvent {
   t: EventType.GUILD_MEMBERS_CHUNK;
   d: {
-    guild_id: Snowflake<Guild>;
+    guild_id: GuildSnowflake;
     members: GuildMember[];
     not_found?: any[];
     presences?: Presence[];
@@ -163,7 +163,7 @@ export interface GuildMembersChunk extends DispatchEvent {
 export interface GuildRoleCreate extends DispatchEvent {
   t: EventType.GUILD_ROLE_CREATE;
   d: {
-    guild_id: Snowflake<Guild>;
+    guild_id: GuildSnowflake;
     role: Role;
   };
 }
@@ -171,7 +171,7 @@ export interface GuildRoleCreate extends DispatchEvent {
 export interface GuildRoleUpdate extends DispatchEvent {
   t: EventType.GUILD_ROLE_UPDATE;
   d: {
-    guild_id: Snowflake<Guild>;
+    guild_id: GuildSnowflake;
     role: Role;
   };
 }
@@ -179,8 +179,8 @@ export interface GuildRoleUpdate extends DispatchEvent {
 export interface GuildRoleDelete extends DispatchEvent {
   t: EventType.GUILD_ROLE_DELETE;
   d: {
-    guild_id: Snowflake<Guild>;
-    role_id: Snowflake<Role>;
+    guild_id: GuildSnowflake;
+    role_id: RoleSnowflake;
   };
 }
 
@@ -197,28 +197,28 @@ export interface MessageUpdate extends DispatchEvent {
 export interface MessageDelete extends DispatchEvent {
   t: EventType.MESSAGE_DELETE;
   d: {
-    id: Snowflake<Message>;
-    channel_id: Snowflake<Channel>;
-    guild_id?: Snowflake<Guild>;
+    id: MessageSnowflake;
+    channel_id: ChannelSnowflake;
+    guild_id?: GuildSnowflake;
   };
 }
 
 export interface MessageDeleteBulk extends DispatchEvent {
   t: EventType.MESSAGE_DELETE_BULK;
   d: {
-    ids: Snowflake<Message>[];
-    channel_id: Snowflake<Channel>;
-    guild_id?: Snowflake<Guild>;
+    ids: MessageSnowflake[];
+    channel_id: ChannelSnowflake;
+    guild_id?: GuildSnowflake;
   };
 }
 
 export interface MessageReactionAdd extends DispatchEvent {
   t: EventType.MESSAGE_REACTION_ADD;
   d: {
-    user_id: Snowflake<User>;
-    channel_id: Snowflake<Channel>;
-    message_id: Snowflake<Message>;
-    guild_id?: Snowflake<Guild>;
+    user_id: UserSnowflake;
+    channel_id: ChannelSnowflake;
+    message_id: MessageSnowflake;
+    guild_id?: GuildSnowflake;
     member?: GuildMember;
     emoji: Partial<Emoji>;
   };
@@ -227,10 +227,10 @@ export interface MessageReactionAdd extends DispatchEvent {
 export interface MessageReactionRemove extends DispatchEvent {
   t: EventType.MESSAGE_REACTION_REMOVE;
   d: {
-    user_id: Snowflake<User>;
-    channel_id: Snowflake<Channel>;
-    message_id: Snowflake<Message>;
-    guild_id?: Snowflake<Guild>;
+    user_id: UserSnowflake;
+    channel_id: ChannelSnowflake;
+    message_id: MessageSnowflake;
+    guild_id?: GuildSnowflake;
     emoji: Partial<Emoji>;
   };
 }
@@ -238,9 +238,9 @@ export interface MessageReactionRemove extends DispatchEvent {
 export interface MessageReactionRemoveAll extends DispatchEvent {
   t: EventType.MESSAGE_REACTION_REMOVE_ALL;
   d: {
-    channel_id: Snowflake<Channel>;
-    message_id: Snowflake<Message>;
-    guild_id?: Snowflake<Guild>;
+    channel_id: ChannelSnowflake;
+    message_id: MessageSnowflake;
+    guild_id?: GuildSnowflake;
   };
 }
 
@@ -252,9 +252,9 @@ export interface PresenceUpdate extends DispatchEvent {
 export interface TypingStart extends DispatchEvent {
   t: EventType.TYPING_START;
   d: {
-    channel_id: Snowflake<Channel>;
-    guild_id?: Snowflake<Guild>;
-    user_id: Snowflake<User>;
+    channel_id: ChannelSnowflake;
+    guild_id?: GuildSnowflake;
+    user_id: UserSnowflake;
     timestamp: string;
     member?: GuildMember;
   };
@@ -267,14 +267,14 @@ export interface UserUpdate extends DispatchEvent {
 
 export interface VoiceStateUpdate extends DispatchEvent {
   t: EventType.VOICE_STATE_UPDATE;
-  d: VoiceState & { guild_id: Snowflake<Guild> };
+  d: VoiceState & { guild_id: GuildSnowflake };
 }
 
 export interface VoiceServerUpdate extends DispatchEvent {
   t: EventType.VOICE_SERVER_UPDATE;
   d: {
     token: string;
-    guild_id: Snowflake<Guild>;
+    guild_id: GuildSnowflake;
     endpoint: string;
   };
 }
@@ -282,7 +282,7 @@ export interface VoiceServerUpdate extends DispatchEvent {
 export interface WebhooksUpdate extends DispatchEvent {
   t: EventType.WEBHOOKS_UPDATE;
   d: {
-    guild_id: Snowflake<Guild>;
-    channel_id: Snowflake<Channel>;
+    guild_id: GuildSnowflake;
+    channel_id: ChannelSnowflake;
   };
 }

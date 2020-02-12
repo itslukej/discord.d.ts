@@ -1,6 +1,5 @@
-import { Snowflake } from './Snowflake';
-import { GuildTextChannel, Channel } from './Channel';
-import { User } from './User';
+import { GuildSnowflake, UserSnowflake, ChannelSnowflake } from './Snowflake';
+import { Channel } from './Channel';
 import { Regions, VoiceState } from './Voice';
 import { Role } from './Role';
 import { Emoji } from './Emoji';
@@ -55,22 +54,22 @@ export const enum Feature {
 }
 
 export interface UnavailableGuild {
-  id: Snowflake<Guild>;
+  id: GuildSnowflake;
   unavailable: true;
 }
 
 export interface AvailableGuild {
-  id: Snowflake<Guild>;
+  id: GuildSnowflake;
   name: string;
   icon?: string;
   splash?: string;
-  owner_id: Snowflake<User>;
+  owner_id: UserSnowflake;
   permissions?: Permissions;
   region: Regions;
-  afk_channel_id: Snowflake<GuildTextChannel>;
+  afk_channel_id: ChannelSnowflake;
   afk_timeout: number;
   embed_enabled?: boolean;
-  embed_channel_id: Snowflake<GuildTextChannel>;
+  embed_channel_id: ChannelSnowflake;
   verification_level: VerificationLevel;
   default_message_notifications: MessageNotificationsLevel;
   explicit_content_filter: ExplicitContentFilterLevel;
@@ -78,10 +77,10 @@ export interface AvailableGuild {
   emojis: Emoji[];
   features: Feature[];
   mfa_level: MFALevel;
-  application_id?: Snowflake<User>;
+  application_id?: UserSnowflake;
   widget_enabled: boolean;
-  widget_channel_id?: Snowflake<GuildTextChannel>;
-  system_channel_id: Snowflake<GuildTextChannel>;
+  widget_channel_id?: ChannelSnowflake;
+  system_channel_id: ChannelSnowflake;
   max_presences?: number;
   max_members?: number;
   vanity_url_code: string;

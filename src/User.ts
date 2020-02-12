@@ -1,4 +1,4 @@
-import { Snowflake } from './Snowflake';
+import { UserSnowflake } from './Snowflake';
 
 export const enum PremiumType {
   NITRO_CLASSIC = 1,
@@ -20,7 +20,7 @@ export const enum UserFlags {
 }
 
 export interface User {
-  id: Snowflake<User>;
+  id: UserSnowflake;
   username: string;
   discriminator: string;
   avatar?: string;

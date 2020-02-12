@@ -1,7 +1,7 @@
-import { Snowflake } from './Snowflake';
+import { WebhookSnowflake } from './Snowflake';
 
 export interface Webhook {
-  id: Snowflake<Webhook>;
+  id: WebhookSnowflake;
   username: string;
   avatar?: string;
 }

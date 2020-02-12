@@ -1,7 +1,7 @@
-import { Snowflake } from "./Snowflake";
+import { AttachmentSnowflake } from "./Snowflake";
 
 export interface Attachment {
-  id: Snowflake<Attachment>;
+  id: AttachmentSnowflake;
   filename: string;
   size: number;
   url: string;

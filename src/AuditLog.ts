@@ -1,13 +1,11 @@
 import { Webhook } from "./Webhook";
 import { User } from "./User";
 import { Integration } from "./Integration";
-import { Snowflake } from "./Snowflake";
+import { Snowflake, UserSnowflake, AuditLogEntrySnowflake, ChannelSnowflake, MessageSnowflake, RoleSnowflake } from "./Snowflake";
 import { Role } from "./Role";
 import { MessageNotificationsLevel, ExplicitContentFilterLevel, VerificationLevel, MFALevel } from "./Guild";
 import { PermissionOverwrite } from "./Permissions";
-import { Channel, ChannelType } from "./Channel";
-import { Message } from "./Message";
-import { GuildMember } from "./Member";
+import { ChannelType } from "./Channel";
 
 export const enum AuditLogEvent {
 	GUILD_UPDATE = 1,
@@ -57,8 +55,8 @@ export interface AuditLog {
 export interface AuditLogEntry {
   target_id: Snowflake | null;
   changes?: AuditLogChange[];
-  user_id: Snowflake<User>;
-  id: Snowflake<AuditLogEntry>;
+  user_id: UserSnowflake;
+  id: AuditLogEntrySnowflake;
   action_type: AuditLogEvent;
   options?: Partial<AuditEntryInfo>;
   reason?: string;
@@ -67,10 +65,10 @@ export interface AuditLogEntry {
 export interface AuditEntryInfo {
   delete_member_days: string;
 	members_removed: string;
-	channel_id: Snowflake<Channel>;
-	message_id: Snowflake<Message>;
+	channel_id: ChannelSnowflake;
+	message_id: MessageSnowflake;
 	count: string;
-	id: Snowflake<GuildMember | Role>;
+	id: UserSnowflake | RoleSnowflake;
 	type: 'member' | 'role';
 	role_name: string;
 }

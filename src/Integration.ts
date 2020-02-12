@@ -1,5 +1,4 @@
-import { Snowflake } from "./Snowflake";
-import { Role } from "./Role";
+import { IntegrationSnowflake, RoleSnowflake } from "./Snowflake";
 import { User } from "./User";
 
 export interface IntegrationAccount {
@@ -8,12 +7,12 @@ export interface IntegrationAccount {
 }
 
 export interface Integration {
-  id: Snowflake<Integration>;
+  id: IntegrationSnowflake;
   name: string;
   type: string;
   enabled: boolean;
   syncing: boolean;
-  role_id: Snowflake<Role>;
+  role_id: RoleSnowflake;
   expire_behaviour: number;
   expire_grace_period: number;
   user: User;
