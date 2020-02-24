@@ -13,6 +13,7 @@ import { Emoji } from '../Emoji';
 
 export type AllDispatchEvents = 
   | Ready
+  | Resumed
   | ChannelCreate
   | ChannelUpdate
   | ChannelDelete
@@ -54,6 +55,10 @@ export interface Ready extends DispatchEvent {
     session_id: string;
     shard: [number, number];
   }
+}
+
+export interface Resumed extends DispatchEvent {
+  t: EventType.RESUMED;
 }
 
 /* Channel Events */
