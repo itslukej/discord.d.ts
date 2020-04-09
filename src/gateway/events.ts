@@ -14,21 +14,39 @@ export interface BaseEvent {
 
 export type AllReceivableEvents = 
   | HelloEvent
+  | RHeartbeatEvent
+  | HeartbeatACKEvent
+  | InvalidSessionEvent
+  | ReconnectEvent
   | Dispatch.AllDispatchEvents;
 
 export interface ReceivableEvent extends BaseEvent {
   op: ReceivableOp;
 }
 
-export interface HelloEvent extends BaseEvent {
+export interface HelloEvent extends ReceivableEvent {
   op: ReceivableOp.HELLO;
   d: {
     heartbeat_interval: number;
   }
 }
 
-export interface HeartbeatACKEvent extends BaseEvent {
+export interface RHeartbeatEvent extends ReceivableEvent {
+  op: ReceivableOp.HEARTBEAT;
+  d: number | null;
+}
+
+export interface HeartbeatACKEvent extends ReceivableEvent {
   op: ReceivableOp.HEARTBEAT_ACK;
+}
+
+export interface InvalidSessionEvent extends ReceivableEvent {
+  op: ReceivableOp.INVALID_SESSION;
+  d: boolean;
+}
+
+export interface ReconnectEvent extends ReceivableEvent {
+  op: ReceivableOp.RECONNECT;
 }
 
 export interface DispatchEvent extends ReceivableEvent {
@@ -42,7 +60,7 @@ export { Dispatch };
 /* Sendable */
 
 export type AllSendableEvents = 
-  | HeartbeatEvent
+  | SHeartbeatEvent
   | IdentifyEvent
   | ResumeEvent
   | RequestGuildMembersEvent
@@ -60,7 +78,7 @@ export interface SendableEvent extends BaseEvent {
   op: SendableOp;
 }
 
-export interface HeartbeatEvent extends SendableEvent {
+export interface SHeartbeatEvent extends SendableEvent {
   op: SendableOp.HEARTBEAT;
   d: number | null;
 }
