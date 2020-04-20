@@ -1,7 +1,7 @@
 import { ChannelSnowflake, GuildSnowflake, UserSnowflake } from './Snowflake';
 import { GuildMember } from './Member';
 
-export const enum Regions {
+export enum Regions {
   BRAZIL = "brazil",
   EUROPE = "europe",
   HONG_KONG = "hong-kong",

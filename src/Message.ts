@@ -14,7 +14,7 @@ import { Reaction } from './Reaction';
 import { User } from './User';
 import { Webhook } from './Webhook';
 
-export const enum MessageFlags {
+export enum MessageFlags {
   CROSSPOSTED = 1 << 0,
   IS_CROSSPOST = 1 << 1,
   SUPPRESS_EMBEDS = 1 << 2,
@@ -22,7 +22,7 @@ export const enum MessageFlags {
   URGENT = 1 << 4,
 }
 
-export const enum MessageType {
+export enum MessageType {
   DEFAULT = 0,
   RECIPIENT_ADD = 1,
   RECIPIENT_REMOVE = 2,

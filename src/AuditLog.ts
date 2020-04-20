@@ -19,7 +19,7 @@ import { Role } from './Role';
 import { User } from './User';
 import { Webhook } from './Webhook';
 
-export const enum AuditLogEvent {
+export enum AuditLogEvent {
 	GUILD_UPDATE = 1,
 	CHANNEL_CREATE = 10,
 	CHANNEL_UPDATE = 11,

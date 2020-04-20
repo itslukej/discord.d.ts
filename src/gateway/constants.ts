@@ -1,4 +1,4 @@
-export const enum DispatchEventType {
+export enum DispatchEventType {
   READY = "READY",
   RESUMED = "RESUMED",
   CHANNEL_CREATE = "CHANNEL_CREATE",
@@ -34,7 +34,7 @@ export const enum DispatchEventType {
   PRESENCE_UPDATE = "PRESENCE_UPDATE"
 }
 
-export const enum SendableOp {
+export enum SendableOp {
   HEARTBEAT = 1,
   IDENTIFY = 2,
   STATUS_UPDATE = 3,
@@ -43,7 +43,7 @@ export const enum SendableOp {
   REQUEST_GUILD_MEMBERS = 8,
 }
 
-export const enum ReceivableOp {
+export enum ReceivableOp {
   DISPATCH = 0,
   HEARTBEAT = 1,
   RECONNECT = 7,
@@ -54,7 +54,7 @@ export const enum ReceivableOp {
 
 export type GatewayVersions = 6 | 5 | 4;
 
-export const enum Intents {
+export enum Intents {
   GUILDS = 1 << 0,
   GUILD_MEMBERS = 1 << 1,
   GUILD_BANS = 1 << 2,

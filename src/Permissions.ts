@@ -1,6 +1,6 @@
 import { UserSnowflake, RoleSnowflake } from "./Snowflake";
 
-export const enum Permissions {
+export enum Permissions {
   CREATE_INSTANT_INVITE = 1,
   KICK_MEMBERS = 1 << 1,
   BAN_MEMBERS = 1 << 2,
@@ -38,7 +38,7 @@ export const enum Permissions {
   ALL_VOICE = 0b0110011111100000000001100010001,
 }
 
-export const enum PermissionOverwriteType {
+export enum PermissionOverwriteType {
   ROLE = "role",
   MEMBER = "member"
 }

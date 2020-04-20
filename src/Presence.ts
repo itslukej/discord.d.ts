@@ -9,14 +9,14 @@ import { User } from './User';
 
 export type Status = "idle" | "dnd" | "online" | "offline";
 
-export const enum ActivityType {
+export enum ActivityType {
   GAME = 0,
   STREAMING = 1,
   LISTENING = 2,
   CUSTOM = 4,
 }
 
-export const enum ActivityFlags {
+export enum ActivityFlags {
   INSTANCE = 1 << 0,
   JOIN = 1 << 1,
   SPECTATE = 1 << 2,

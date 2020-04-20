@@ -1,11 +1,11 @@
 import { UserSnowflake } from './Snowflake';
 
-export const enum PremiumType {
+export enum PremiumType {
   NITRO_CLASSIC = 1,
   NITRO = 2,
 }
 
-export const enum UserFlags {
+export enum UserFlags {
   NONE = 0,
   DISCORD_EMPLOYEE = 1 << 0,
   DISCORD_PARTNER = 1 << 1,

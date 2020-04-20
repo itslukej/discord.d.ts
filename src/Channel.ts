@@ -2,7 +2,7 @@ import { ChannelSnowflake, GuildSnowflake, MessageSnowflake } from './Snowflake'
 import { PermissionOverwrite } from './Permissions';
 import { User } from './User';
 
-export const enum ChannelType {
+export enum ChannelType {
   GUILD_TEXT = 0,
   DM = 1,
   GUILD_VOICE = 2,
