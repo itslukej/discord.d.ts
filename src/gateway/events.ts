@@ -95,7 +95,9 @@ export interface IdentifyEvent extends SendableEvent {
     compress?: boolean;
     large_threshold?: number;
     shard?: [number, number],
-    presence?: StatusUpdate;
+    presence?: StatusUpdate,
+    guild_subscriptions?: boolean;
+    intents?: number,
   }
 }
 
