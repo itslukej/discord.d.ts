@@ -9,6 +9,5 @@
     "outDir": "dist",
     "lib": ["es2019"],
     "declaration": true,
-    "declarationDir": "types"
   },
 }
