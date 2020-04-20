@@ -1,11 +1,11 @@
-import { GuildSnowflake, UserSnowflake, ChannelSnowflake } from './Snowflake';
 import { Channel } from './Channel';
+import { ChannelSnowflake, GuildSnowflake, UserSnowflake } from './Snowflake';
+import { Emoji } from './Emoji';
+import { GuildMember } from './Member';
+import { Permissions } from './Permissions';
+import { Presence } from './Presence';
 import { Regions, VoiceState } from './Voice';
 import { Role } from './Role';
-import { Emoji } from './Emoji';
-import { Permissions } from './Permissions';
-import { GuildMember } from './Member';
-import { Presence } from './Presence';
 
 export const enum VerificationLevel {
   NONE = 0,

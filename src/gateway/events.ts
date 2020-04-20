@@ -1,7 +1,7 @@
-import { ReceivableOp, SendableOp, DispatchEventType } from './constants';
 import * as Dispatch from './dispatch';
-import { GuildSnowflake, UserSnowflake, ChannelSnowflake } from '../Snowflake';
 import { Activity, Status } from '../Presence';
+import { ChannelSnowflake, GuildSnowflake, UserSnowflake } from '../Snowflake';
+import { DispatchEventType, ReceivableOp, SendableOp } from './constants';
 
 /* Base */
 

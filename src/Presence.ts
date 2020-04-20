@@ -1,5 +1,11 @@
-import { ActivityEmojiSnowflake, UserSnowflake, RoleSnowflake, GuildSnowflake, Snowflake } from "./Snowflake";
-import { User } from "./User";
+import {
+  ActivityEmojiSnowflake,
+  GuildSnowflake,
+  RoleSnowflake,
+  Snowflake,
+  UserSnowflake
+  } from './Snowflake';
+import { User } from './User';
 
 export type Status = "idle" | "dnd" | "online" | "offline";
 

@@ -1,11 +1,23 @@
-import { Webhook } from "./Webhook";
-import { User } from "./User";
-import { Integration } from "./Integration";
-import { Snowflake, UserSnowflake, AuditLogEntrySnowflake, ChannelSnowflake, MessageSnowflake, RoleSnowflake } from "./Snowflake";
-import { Role } from "./Role";
-import { MessageNotificationsLevel, ExplicitContentFilterLevel, VerificationLevel, MFALevel } from "./Guild";
-import { PermissionOverwrite } from "./Permissions";
-import { ChannelType } from "./Channel";
+import {
+	AuditLogEntrySnowflake,
+	ChannelSnowflake,
+	MessageSnowflake,
+	RoleSnowflake,
+	Snowflake,
+	UserSnowflake
+	} from './Snowflake';
+import { ChannelType } from './Channel';
+import {
+	ExplicitContentFilterLevel,
+	MessageNotificationsLevel,
+	MFALevel,
+	VerificationLevel
+	} from './Guild';
+import { Integration } from './Integration';
+import { PermissionOverwrite } from './Permissions';
+import { Role } from './Role';
+import { User } from './User';
+import { Webhook } from './Webhook';
 
 export const enum AuditLogEvent {
 	GUILD_UPDATE = 1,

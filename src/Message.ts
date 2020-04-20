@@ -1,11 +1,18 @@
-import { ChannelType } from "./Channel";
-import { Snowflake, ChannelSnowflake, GuildSnowflake, WebhookSnowflake, RoleSnowflake, MessageSnowflake } from "./Snowflake";
-import { Webhook } from "./Webhook";
-import { User } from "./User";
-import { GuildMember } from "./Member";
-import { Reaction } from "./Reaction";
-import { Attachment } from "./Attachment";
-import { Embed } from "./Embed";
+import { Attachment } from './Attachment';
+import {
+  ChannelSnowflake,
+  GuildSnowflake,
+  MessageSnowflake,
+  RoleSnowflake,
+  Snowflake,
+  WebhookSnowflake
+  } from './Snowflake';
+import { ChannelType } from './Channel';
+import { Embed } from './Embed';
+import { GuildMember } from './Member';
+import { Reaction } from './Reaction';
+import { User } from './User';
+import { Webhook } from './Webhook';
 
 export const enum MessageFlags {
   CROSSPOSTED = 1 << 0,

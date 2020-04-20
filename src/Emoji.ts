@@ -1,5 +1,5 @@
-import { EmojiSnowflake, RoleSnowflake } from "./Snowflake";
-import { User } from "./User";
+import { EmojiSnowflake, RoleSnowflake } from './Snowflake';
+import { User } from './User';
 
 export interface Emoji {
   id?: EmojiSnowflake;

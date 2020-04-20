@@ -1,5 +1,5 @@
-import { IntegrationSnowflake, RoleSnowflake } from "./Snowflake";
-import { User } from "./User";
+import { IntegrationSnowflake, RoleSnowflake } from './Snowflake';
+import { User } from './User';
 
 export interface IntegrationAccount {
   id: string;

@@ -1,6 +1,6 @@
-import { ChannelSnowflake, MessageSnowflake, GuildSnowflake } from './Snowflake';
-import { User } from './User';
+import { ChannelSnowflake, GuildSnowflake, MessageSnowflake } from './Snowflake';
 import { PermissionOverwrite } from './Permissions';
+import { User } from './User';
 
 export const enum ChannelType {
   GUILD_TEXT = 0,

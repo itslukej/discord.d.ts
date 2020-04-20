@@ -1,5 +1,5 @@
-import { GuildSnowflake, ChannelSnowflake, UserSnowflake } from "./Snowflake";
-import { GuildMember } from "./Member";
+import { ChannelSnowflake, GuildSnowflake, UserSnowflake } from './Snowflake';
+import { GuildMember } from './Member';
 
 export const enum Regions {
   BRAZIL = "brazil",

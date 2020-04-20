@@ -1,15 +1,22 @@
+import { AnyChannel, Channel } from '../Channel';
+import {
+  ChannelSnowflake,
+  GuildSnowflake,
+  MessageSnowflake,
+  RoleSnowflake,
+  Snowflake,
+  UserSnowflake
+  } from '../Snowflake';
 import { DispatchEvent } from './events';
 import { DispatchEventType as EventType, GatewayVersions } from './constants';
-import { User } from '../User';
-import { UnavailableGuild, Guild } from '../Guild';
-import { AnyChannel, Channel } from '../Channel';
-import { VoiceState } from '../Voice';
-import { GuildMember } from '../Member';
-import { Presence } from '../Presence';
-import { Snowflake, GuildSnowflake, ChannelSnowflake, MessageSnowflake, UserSnowflake, RoleSnowflake } from '../Snowflake';
-import { Role } from '../Role';
-import { Message } from '../Message';
 import { Emoji } from '../Emoji';
+import { Guild, UnavailableGuild } from '../Guild';
+import { GuildMember } from '../Member';
+import { Message } from '../Message';
+import { Presence } from '../Presence';
+import { Role } from '../Role';
+import { User } from '../User';
+import { VoiceState } from '../Voice';
 
 export type AllDispatchEvents = 
   | Ready
