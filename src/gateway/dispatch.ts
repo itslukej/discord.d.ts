@@ -171,6 +171,7 @@ export interface GuildMembersChunk extends DispatchEvent {
     members: GuildMember[];
     not_found?: any[];
     presences?: Presence[];
+    nonce?: string;
   };
 }
 
