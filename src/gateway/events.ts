@@ -118,6 +118,7 @@ export interface RequestGuildMembersEvent extends SendableEvent {
     limit: number;
     presences?: boolean;
     user_ids?: UserSnowflake | Array<UserSnowflake>;
+    nonce?: string;
   }
 }
 
