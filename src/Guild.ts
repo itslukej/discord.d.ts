@@ -8,34 +8,34 @@ import { Regions, VoiceState } from './Voice';
 import { Role } from './Role';
 
 export enum VerificationLevel {
-  NONE = 0,
-  LOW = 1,
-  MEDIUM = 2,
-  HIGH = 3,
-  VERY_HIGH = 4,
+  NONE,
+  LOW,
+  MEDIUM,
+  HIGH,
+  VERY_HIGH
 }
 
 export enum PremiumTier {
-  NONE = 0,
-  TIER_1 = 1,
-  TIER_2 = 2,
-  TIER_3 = 3,
+  NONE,
+  TIER_1,
+  TIER_2,
+  TIER_3
 }
 
 export enum MFALevel {
-  NONE = 0,
-  ELEVATED = 1,
+  NONE,
+  ELEVATED
 }
 
 export enum MessageNotificationsLevel {
-  ALL_MESSAGES = 0,
-  ONLY_MENTIONS = 1,
+  ALL_MESSAGES,
+  ONLY_MENTIONS
 }
 
 export enum ExplicitContentFilterLevel {
-  DISABLED = 0,
-  MEMBERS_WITHOUT_ROLES = 1,
-  ALL_MEMBERS = 2,
+  DISABLED,
+  MEMBERS_WITHOUT_ROLES,
+  ALL_MEMBERS
 }
 
 export enum Feature {
