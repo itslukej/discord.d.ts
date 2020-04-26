@@ -165,6 +165,8 @@ export interface GuildMemberUpdate extends DispatchEvent {
 export interface GuildMembersChunk extends DispatchEvent {
   t: EventType.GUILD_MEMBERS_CHUNK;
   d: {
+    chunk_count: number;
+    chunk_index: number;
     guild_id: GuildSnowflake;
     members: GuildMember[];
     not_found?: any[];
