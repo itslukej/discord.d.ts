@@ -259,6 +259,16 @@ export interface MessageReactionRemoveAll extends DispatchEvent {
   };
 }
 
+export interface MessageReactionRemoveEmoji extends DispatchEvent {
+  t: EventType.MESSAGE_REACTION_REMOVE_EMOJI,
+  d: {
+    channel_id: ChannelSnowflake;
+    message_id: MessageSnowflake;
+    guild_id?: GuildSnowflake;
+    emoji: Partial<Emoji>;
+  }
+}
+
 export interface PresenceUpdate extends DispatchEvent {
   t: EventType.PRESENCE_UPDATE;
   d: Presence;
@@ -299,5 +309,16 @@ export interface WebhooksUpdate extends DispatchEvent {
   d: {
     guild_id: GuildSnowflake;
     channel_id: ChannelSnowflake;
+  };
+}
+
+export interface GiftCodeUpdate extends DispatchEvent {
+  t: EventType.GIFT_CODE_UPDATE;
+  d: {
+    sku_id: Snowflake<any>;
+    channel_id: ChannelSnowflake;
+    guild_id: GuildSnowflake;
+    uses: number;
+    code: string;
   };
 }
