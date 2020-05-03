@@ -5,6 +5,7 @@ export * from './Ban';
 export * from './Channel';
 export * from './Embed';
 export * from './Emoji';
+export * from './GatewayInfo';
 export * from './Guild';
 export * from './Member';
 export * from './Message';
