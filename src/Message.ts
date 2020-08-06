@@ -109,6 +109,6 @@ export interface BaseMessage {
   type: MessageType;
   activity?: MessageActivity;
   application?: MessageApplication;
-  message_refrence?: MessageReference;
+  message_reference?: MessageReference;
   flags?: number;
 }

@@ -47,5 +47,7 @@ export interface PermissionOverwrite {
   id: UserSnowflake | RoleSnowflake;
   type: PermissionOverwriteType;
   allow: number;
+  allow_new: string;
   deny: number;
+  deny_new: string;
 }
