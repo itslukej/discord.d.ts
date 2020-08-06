@@ -5,7 +5,8 @@ import {
   MessageSnowflake,
   RoleSnowflake,
   Snowflake,
-  WebhookSnowflake
+  WebhookSnowflake,
+  UserSnowflake
   } from './Snowflake';
 import { ChannelType } from './Channel';
 import { Embed } from './Embed';
@@ -13,6 +14,14 @@ import { GuildMember } from './Member';
 import { Reaction } from './Reaction';
 import { User } from './User';
 import { Webhook } from './Webhook';
+
+export type AllowedMentionType = 'roles' | 'users' | 'everyone'
+
+export interface AllowedMentions {
+  parse?: AllowedMentionType[]
+  roles?: RoleSnowflake[]
+  users?: UserSnowflake[]
+}
 
 export enum MessageFlags {
   CROSSPOSTED = 1 << 0,
