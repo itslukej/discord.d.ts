@@ -7,6 +7,7 @@ export interface Role {
   hoist: boolean;
   position: number;
   permissions: number;
+  permissions_new: string;
   managed: boolean;
   mentionable: boolean;
 }

@@ -32,4 +32,5 @@ export interface User {
   email?: boolean;
   flags?: number;
   premium_type?: PremiumType;
+  public_flags?: number
 }

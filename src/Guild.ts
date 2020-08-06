@@ -65,6 +65,7 @@ export interface AvailableGuild {
   splash?: string;
   owner_id: UserSnowflake;
   permissions?: Permissions;
+  permissions_new?: string;
   region: Regions;
   afk_channel_id: ChannelSnowflake;
   afk_timeout: number;
@@ -89,6 +90,10 @@ export interface AvailableGuild {
   premium_tier: PremiumTier;
   premium_subscription_count?: number;
   preferred_locale: string;
+  public_updates_channel_id: string;
+  max_video_channel_users?: number;
+  approximate_member_count?: number;
+  approximate_presence_count?: number;
 }
 
 export interface WebsocketGuild extends AvailableGuild {
